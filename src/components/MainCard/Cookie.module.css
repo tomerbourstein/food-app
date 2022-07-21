@@ -1,0 +1,22 @@
+.listItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cookieType {
+    width: 4.4rem;
+    margin: 0.2rem 0;
+    font-size: medium !important;
+}
+
+.cookieDescription {
+    width: 5.6rem;
+    margin: 0.2rem 0;
+    font-size: 0.6rem !important;
+}
+
+
+
+itemPrice {
+    padding: none;
+}

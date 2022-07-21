@@ -1,0 +1,19 @@
+.box {
+    display: flex;
+    justify-content: center;
+    
+    
+  }
+  .image {
+  position: absolute;
+
+    margin-top: -200px;
+    opacity: 0.7;
+    width: 45%;
+    z-index: -1;
+  }
+  
+  .message {
+  position: absolute;
+z-index: 2;
+}

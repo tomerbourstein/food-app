@@ -1,0 +1,16 @@
+
+
+   .zIndex {
+    display: flex;
+    justify-content:center;
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    z-index: 10 !important;
+   }
+   .marginRight {
+    margin-right: 18.5rem;
+   }
+   .marginLeft {
+    margin-left: 18.5rem;
+   }
