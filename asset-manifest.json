@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dd7be0d0.css",
+    "main.js": "/static/js/main.fe40ffdd.js",
+    "static/js/787.5dc0e2a0.chunk.js": "/static/js/787.5dc0e2a0.chunk.js",
+    "static/media/chocolate-chip4800800.jpg": "/static/media/chocolate-chip4800800.e5056f5cd4dea7e16e5c.jpg",
+    "index.html": "/index.html",
+    "main.dd7be0d0.css.map": "/static/css/main.dd7be0d0.css.map",
+    "main.fe40ffdd.js.map": "/static/js/main.fe40ffdd.js.map",
+    "787.5dc0e2a0.chunk.js.map": "/static/js/787.5dc0e2a0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd7be0d0.css",
+    "static/js/main.fe40ffdd.js"
+  ]
+}
