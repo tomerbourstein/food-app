@@ -1,0 +1,12 @@
+.invalid {
+    padding-left: 0.1rem;
+    font-size: 0.7rem;
+    color: brown;
+  }
+  
+  .invalidNoMargin {
+    padding-left: 0.1rem;
+    font-size: 0.7rem;
+    color: brown;
+    margin-bottom: 0;
+  }

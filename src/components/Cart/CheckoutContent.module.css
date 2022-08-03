@@ -1,0 +1,12 @@
+.checkoutContent {
+    min-width: 150px;
+    max-width: 150px;
+
+  font-size: 0.7rem;
+  margin: 0.25rem ;
+  /* padding:0; */
+}
+
+.padd {
+    padding: 8px 8px;
+}
