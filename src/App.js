@@ -119,6 +119,7 @@ useEffect(() =>{
 
   const handleButtonClose = () => {
     setShow(false);
+    setCookies([]);
   };
 
   const addCookieHandler = (enteredCookieEvent) => {
@@ -140,6 +141,7 @@ useEffect(() =>{
       });
     }
   };
+
 
   return (
     <div className={classes.App}>

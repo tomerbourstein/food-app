@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 import useInput from "../hooks/use-input";
 
 import Form from "react-bootstrap/Form";
@@ -84,10 +82,12 @@ const FormPayment = (props) => {
     postalBlurHandler();
     cityBlurHandler();
     paymentBlurHandler();
-    if(!formIsValid) {
-        return;
+    if (!formIsValid) {
+      return;
     }
     const data = {
+      cookies: [...props.checkoutCookie],
+      sum: props.checkoutSum(),
       firstName: enteredFirstName,
       lastName: enteredLastName,
       adress: enteredAdrress,
@@ -96,13 +96,15 @@ const FormPayment = (props) => {
       payment: enteredPayment,
     };
 
-    console.log(data);
+    // console.log(data);
     firstNameReset();
     lastNameReset();
     adrressReset();
     postalReset();
     cityReset();
     paymentReset();
+
+    props.handleSubmit(data);
   };
   return (
     <>
@@ -193,8 +195,11 @@ const FormPayment = (props) => {
                 onChange={cityChangeHandler}
                 onBlur={cityBlurHandler}
                 aria-label="Select City"
+                // placeholder="Choose"
               >
-                <option value="Choose">Choose</option>
+                <option disabled hidden value="">
+                  Choose
+                </option>
                 <option value="Tel-Aviv">Tel-Aviv</option>
                 <option value="Ramat-Gan">Ramat-Gan</option>
                 <option value="Givatayim">Givatayim</option>
@@ -217,7 +222,9 @@ const FormPayment = (props) => {
                 onBlur={paymentBlurHandler}
                 aria-label="Select Payment Method"
               >
-                <option value="Choose">Choose</option>
+                <option disabled hidden value="">
+                  Choose
+                </option>
                 <option value="PayPal">PayPal</option>
                 <option value="Credit Card">Credit Card</option>
               </Form.Select>
