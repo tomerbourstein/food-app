@@ -8,11 +8,14 @@ const CheckoutContent = (props) => {
   return (
     <ListGroup variant="flush">
       <Row>
+
         {props.checkoutCookie.map((cookie, i) => (
           <Col key={i} className={classes.checkoutContent}>
             <ListGroup.Item className={classes.padd} as="li">
               <div className="fw-bold d-flex justify-content-between ">
                 <p className="mb-1">
+
+
                   {" "}
                   {cookie.type} {"x" + cookie.amount}{" "}
                 </p>
@@ -29,6 +32,7 @@ const CheckoutContent = (props) => {
         <h4 className="mx-1">
           {" "}
           <Badge bg="secondary">
+
             {" "}
             <div>Total Amount: {props.checkoutSum()}₪</div>{" "}
           </Badge>

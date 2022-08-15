@@ -1,3 +1,4 @@
+
 import useInput from "../hooks/use-input";
 
 import Form from "react-bootstrap/Form";
@@ -96,7 +97,7 @@ const FormPayment = (props) => {
       payment: enteredPayment,
     };
 
-    // console.log(data);
+
     firstNameReset();
     lastNameReset();
     adrressReset();
@@ -104,7 +105,9 @@ const FormPayment = (props) => {
     cityReset();
     paymentReset();
 
+
     props.handleSubmit(data);
+
   };
   return (
     <>
@@ -195,11 +198,13 @@ const FormPayment = (props) => {
                 onChange={cityChangeHandler}
                 onBlur={cityBlurHandler}
                 aria-label="Select City"
+
                 // placeholder="Choose"
               >
                 <option disabled hidden value="">
                   Choose
                 </option>
+
                 <option value="Tel-Aviv">Tel-Aviv</option>
                 <option value="Ramat-Gan">Ramat-Gan</option>
                 <option value="Givatayim">Givatayim</option>
@@ -222,9 +227,11 @@ const FormPayment = (props) => {
                 onBlur={paymentBlurHandler}
                 aria-label="Select Payment Method"
               >
+
                 <option disabled hidden value="">
                   Choose
                 </option>
+
                 <option value="PayPal">PayPal</option>
                 <option value="Credit Card">Credit Card</option>
               </Form.Select>

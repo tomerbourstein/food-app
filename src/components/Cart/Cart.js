@@ -68,7 +68,7 @@ const Cart = (props) => {
     setHasOrdered(false);
     setHasConfirm(false);
     setIsLoading(false);
-    props.handleButtonClose();
+    props.handleButtonClose(hasConfirm);
   };
   const ActiveCart = () => {
     return (
