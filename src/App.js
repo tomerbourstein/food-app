@@ -117,8 +117,11 @@ useEffect(() =>{
     setShow(true);
   };
 
-  const handleButtonClose = () => {
+  const handleButtonClose = (hasConfirm) => {
     setShow(false);
+    if(!hasConfirm) {
+      return;
+    }
     setCookies([]);
   };
 
