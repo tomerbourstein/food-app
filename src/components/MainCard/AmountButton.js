@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/cart-slice";
 import classes from "./AmountButton.module.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const AmountButton = (props) => {
+  const dispatch = useDispatch();
   const [amount, setAmount] = useState("");
-
   const [disable, setDisable] = useState(true);
 
   const amountChangeHandler = (event) => {
@@ -23,11 +25,14 @@ const AmountButton = (props) => {
     const selectedCookie = {
       type: props.name,
       description: props.description,
+      cookiePrice: props.price,
       price: props.price * amount,
       amount: amount,
     };
-
-    props.addCookieHandler(selectedCookie);
+    dispatch(cartActions.addToCart(selectedCookie));
+    dispatch(cartActions.sumPrice());
+    setAmount("");
+    setDisable(true);
   };
 
   return (

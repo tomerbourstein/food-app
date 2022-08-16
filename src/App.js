@@ -1,4 +1,6 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "./components/store/cart-slice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./App.module.css";
 
@@ -63,107 +65,66 @@ import Cart from "./components/Cart/Cart";
 //   },
 // ];
 
-
-
-
 function App() {
+  const dispatch = useDispatch();
+  const showCart = useSelector((state) => state.cart.isShow);
   const [cookiesLeft, setCookiesLeft] = useState([]);
   const [cookiesRight, setCookiesRight] = useState([]);
 
-  const [show, setShow] = useState(false);
-  var [cookies, setCookies] = useState([]);
-  var [count, setCount] = useState(0);
-
-useEffect(() =>{
-  const handleFetch = async () =>{
-    const resLeft = await fetch("https://react-http-140ec-default-rtdb.firebaseio.com/cookiesLeft.json/");
-    const dataLeft = await resLeft.json();
-    const cookiesDataLeft = [];
-      for(const key in dataLeft) {
-
-      cookiesDataLeft.push({
-        id: key,
-        type: dataLeft[key].type,
-        description: dataLeft[key].description,
-        price: dataLeft[key].price
-      })
-    }
-    setCookiesLeft(cookiesDataLeft);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const resRight = await fetch("https://react-http-140ec-default-rtdb.firebaseio.com/cookiesRight.json/");
-    const dataRight = await resRight.json();
-    const cookiesDataRight = [];
-      for(const key in dataRight) {
-
-      cookiesDataRight.push({
-        id: key,
-        type: dataRight[key].type,
-        description: dataRight[key].description,
-        price: dataRight[key].price
-      })
-    }
-    setCookiesRight(cookiesDataRight)
-  }
-  handleFetch();
-},[])
-  
-
   useEffect(() => {
-    const cookieCount = cookies.map((c) => Number(c.amount));
-    setCount(cookieCount.reduce((a, b) => a + b, 0));
-  }, [cookies]);
+    const handleFetch = async () => {
+      const resLeft = await fetch(
+        "https://react-http-140ec-default-rtdb.firebaseio.com/cookiesLeft.json/"
+      );
+      const dataLeft = await resLeft.json();
+      const cookiesDataLeft = [];
+      for (const key in dataLeft) {
+        cookiesDataLeft.push({
+          id: key,
+          type: dataLeft[key].type,
+          description: dataLeft[key].description,
+          price: dataLeft[key].price,
+        });
+      }
+      setCookiesLeft(cookiesDataLeft);
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      const resRight = await fetch(
+        "https://react-http-140ec-default-rtdb.firebaseio.com/cookiesRight.json/"
+      );
+      const dataRight = await resRight.json();
+      const cookiesDataRight = [];
+      for (const key in dataRight) {
+        cookiesDataRight.push({
+          id: key,
+          type: dataRight[key].type,
+          description: dataRight[key].description,
+          price: dataRight[key].price,
+        });
+      }
+      setCookiesRight(cookiesDataRight);
+    };
+    handleFetch();
+  }, []);
 
   const handleButtonClick = () => {
-    setShow(true);
+    dispatch(cartActions.toggle());
   };
 
   const handleButtonClose = (hasConfirm) => {
-    setShow(false);
-    if(!hasConfirm) {
+    dispatch(cartActions.toggle());
+
+    if (!hasConfirm) {
       return;
     }
-    setCookies([]);
+    dispatch(cartActions.reset());
   };
-
-  const addCookieHandler = (enteredCookieEvent) => {
-    let traceCookieType = (element) => element.type === enteredCookieEvent.type;
-    let foundCookie = cookies.find(traceCookieType);
-
-    if (foundCookie) {
-      setCookies(() => {
-        foundCookie.amount =
-          Number(foundCookie.amount) + Number(enteredCookieEvent.amount);
-        foundCookie.price =
-          Number(foundCookie.price) + Number(enteredCookieEvent.price);
-        return [...cookies];
-      });
-    } else {
-      setCookies((prevState) => {
-        cookies = [enteredCookieEvent, ...prevState];
-        return [...cookies];
-      });
-    }
-  };
-
 
   return (
     <div className={classes.App}>
-      <Navigation
-        handleButtonClick={handleButtonClick}
-        enteredCookie={cookies}
-        cookieCount={count}
-      />
-      <Cart
-        handleButtonClose={handleButtonClose}
-        showModal={show}
-        enteredCookie={cookies}
-      />
+      <Navigation handleButtonClick={handleButtonClick} />
+      <Cart handleButtonClose={handleButtonClose} showModal={showCart} />
       <Background />
-      <MainCard
-        cookiesRight={cookiesRight}
-        cookiesLeft={cookiesLeft}
-        addCookieHandler={addCookieHandler}
-      />
+      <MainCard cookiesRight={cookiesRight} cookiesLeft={cookiesLeft} />
     </div>
   );
 }

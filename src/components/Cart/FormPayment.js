@@ -1,4 +1,4 @@
-
+import { useSelector, useDispatch } from "react-redux";
 import useInput from "../hooks/use-input";
 
 import Form from "react-bootstrap/Form";
@@ -7,8 +7,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 import classes from "./FormPayment.module.css";
+import { cartActions } from "../store/cart-slice";
 
 const FormPayment = (props) => {
+  const cartList = useSelector((state) => state.cart.cartList);
+  const sumPrice = useSelector((state) => state.cart.totalPrice);
+  const dispatch = useDispatch();
   const {
     value: enteredFirstName,
     isValid: firstNameIsValid,
@@ -83,12 +87,13 @@ const FormPayment = (props) => {
     postalBlurHandler();
     cityBlurHandler();
     paymentBlurHandler();
+    dispatch(cartActions.sumPrice());
     if (!formIsValid) {
       return;
     }
     const data = {
-      cookies: [...props.checkoutCookie],
-      sum: props.checkoutSum(),
+      cookies: cartList,
+      sum: sumPrice,
       firstName: enteredFirstName,
       lastName: enteredLastName,
       adress: enteredAdrress,
@@ -97,7 +102,6 @@ const FormPayment = (props) => {
       payment: enteredPayment,
     };
 
-
     firstNameReset();
     lastNameReset();
     adrressReset();
@@ -105,9 +109,7 @@ const FormPayment = (props) => {
     cityReset();
     paymentReset();
 
-
     props.handleSubmit(data);
-
   };
   return (
     <>
@@ -227,7 +229,6 @@ const FormPayment = (props) => {
                 onBlur={paymentBlurHandler}
                 aria-label="Select Payment Method"
               >
-
                 <option disabled hidden value="">
                   Choose
                 </option>

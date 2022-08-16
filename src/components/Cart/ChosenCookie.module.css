@@ -1,0 +1,24 @@
+.listGroupItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+}
+
+.textType{
+    font-weight: 700;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons span {
+    cursor: pointer;
+}

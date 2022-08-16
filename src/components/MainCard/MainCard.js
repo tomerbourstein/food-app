@@ -12,11 +12,11 @@ const MainCard = (props) => {
     <Container fluid className={classes.zIndex}>
       <Row className={classes.centerCol}>
         <Col className={classes.marginRight}>
-          <CookieList cookies={props.cookiesLeft} addCookieHandler={props.addCookieHandler}/>
+          <CookieList cookies={props.cookiesLeft} />
         </Col>
 
         <Col className={classes.marginLeft}>
-          <CookieList cookies={props.cookiesRight} addCookieHandler={props.addCookieHandler}/>
+          <CookieList cookies={props.cookiesRight} />
         </Col>
       </Row>
     </Container>

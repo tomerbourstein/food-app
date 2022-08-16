@@ -1,19 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import ChosenCookie from "./ChosenCookie";
 
 import ListGroup from "react-bootstrap/ListGroup";
 
 const CartList = (props) => {
- 
-  return (
-    
-      <ListGroup variant="flush">
+  const cartList = useSelector((state) => state.cart.cartList);
 
-      {props.enteredCookie.map((cookie) => (
+  return (
+    <ListGroup variant="flush">
+      {cartList.map((cookie) => (
         <ChosenCookie key={Math.random()} enteredCookie={cookie} />
-        ))}
-        </ListGroup>
-    
+      ))}
+    </ListGroup>
   );
 };
 export default CartList;

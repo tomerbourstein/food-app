@@ -5,7 +5,6 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Badge from "react-bootstrap/Badge";
 
 const Cookie = (props) => {
-
   return (
     <ListGroup.Item variant="dark" className={classes.listItem}>
       <div>
@@ -23,7 +22,6 @@ const Cookie = (props) => {
         name={props.name}
         description={props.description}
         price={props.price}
-        addCookieHandler={props.addCookieHandler}
       />
     </ListGroup.Item>
   );

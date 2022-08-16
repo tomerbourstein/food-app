@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./CookieList.module.css";
-// import AmountButton from "./AmountButton";
 import Cookie from "./Cookie";
 
 import ListGroup from "react-bootstrap/ListGroup";
@@ -19,7 +18,6 @@ const CookieList = (props) => {
             description={cookie.description}
             price={cookie.price}
             name={cookie.type}
-            addCookieHandler={props.addCookieHandler}
           />
         ))}
       </ListGroup>
