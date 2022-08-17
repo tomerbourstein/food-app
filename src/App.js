@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "./components/store/cart-slice";
+import { sendCartData, fetchCartData } from "./components/store/cart-requests";
 import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./App.module.css";
 
@@ -8,6 +9,8 @@ import Navigation from "./components/Navigation";
 import MainCard from "./components/MainCard/MainCard";
 import Background from "./components/Background";
 import Cart from "./components/Cart/Cart";
+
+let isInitial = true;
 
 // const cookiesLeft = [
 //   {
@@ -67,9 +70,29 @@ import Cart from "./components/Cart/Cart";
 
 function App() {
   const dispatch = useDispatch();
+  const cartList = useSelector((state) => state.cart.cartList);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const isChanged = useSelector((state) => state.cart.changed);
   const showCart = useSelector((state) => state.cart.isShow);
   const [cookiesLeft, setCookiesLeft] = useState([]);
   const [cookiesRight, setCookiesRight] = useState([]);
+  
+  
+  useEffect(() => {
+    dispatch(fetchCartData());
+  }, [dispatch]);
+  
+  useEffect(() => {
+    let cart = { cartList, totalAmount, totalPrice };
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+    if (isChanged) {
+      dispatch(sendCartData(cart));
+    }
+  }, [cartList,totalAmount,totalPrice, dispatch, isChanged]);
 
   useEffect(() => {
     const handleFetch = async () => {

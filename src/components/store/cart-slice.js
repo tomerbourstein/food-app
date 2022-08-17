@@ -4,8 +4,8 @@ const initialCartState = {
   cartList: [],
   totalAmount: 0,
   isShow: false,
-  cartContent: 1,
   totalPrice: 0,
+  changed: false,
 };
 const cartSlice = createSlice({
   name: "cart",
@@ -14,7 +14,13 @@ const cartSlice = createSlice({
     toggle(state) {
       state.isShow = !state.isShow;
     },
+    replaceCart(state, action) {
+      state.cartList = action.payload.cartList;
+      state.totalAmount = action.payload.totalAmount;
+      state.totalPrice = action.payload.totalPrice;
+    },
     addToCart(state, action) {
+      state.changed = true;
       let newCookie = action.payload;
       state.totalAmount = Number(state.totalAmount) + Number(newCookie.amount);
       let foundCookie = state.cartList.find(
@@ -36,6 +42,7 @@ const cartSlice = createSlice({
       }
     },
     addOneToCart(state, action) {
+      state.changed = true;
       let newCookie = action.payload;
       let foundCookie = state.cartList.find(
         (element) => element.type === newCookie.type
@@ -46,6 +53,7 @@ const cartSlice = createSlice({
         Number(foundCookie.price) + Number(foundCookie.cookiePrice);
     },
     removeFromCart(state, action) {
+      state.changed = true;
       state.totalAmount--;
       let newAmount = action.payload;
       let foundCookie = state.cartList.find(
@@ -63,6 +71,7 @@ const cartSlice = createSlice({
       }
     },
     resetCart(state) {
+      state.changed = true;
       state.cartList = [];
       state.totalAmount = 0;
       state.totalPrice = 0;
