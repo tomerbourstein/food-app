@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import ListGroup from "react-bootstrap/ListGroup";
 import Badge from "react-bootstrap/Badge";
 import Row from "react-bootstrap/Row";
@@ -5,18 +6,21 @@ import Col from "react-bootstrap/Col";
 
 import classes from "./CheckoutContent.module.css";
 const CheckoutContent = (props) => {
+  const checkoutCookie = useSelector((state) => state.cart.cartList);
+  const sumPrice = useSelector((state) => state.cart.totalPrice);
+
   return (
     <ListGroup variant="flush">
       <Row>
-        {props.checkoutCookie.map((cookie) => (
-          <Col className={classes.checkoutContent}>
-            <ListGroup.Item className={classes.padd} key={Math.random()} as="li">
+        {checkoutCookie.map((cookie, i) => (
+          <Col key={i} className={classes.checkoutContent}>
+            <ListGroup.Item className={classes.padd} as="li">
               <div className="fw-bold d-flex justify-content-between ">
-                <p className="mb-1" >
+                <p className="mb-1">
                   {" "}
                   {cookie.type} {"x" + cookie.amount}{" "}
                 </p>
-                <Badge className="align-self-start" bg="secondary" pill>
+                <Badge className={classes.badgeColor} bg="secondary" pill>
                   {cookie.price + "₪"}
                 </Badge>
               </div>
@@ -28,9 +32,9 @@ const CheckoutContent = (props) => {
       <Col className="mt-4 mb-2">
         <h4 className="mx-1">
           {" "}
-          <Badge  bg="secondary">
+          <Badge className={classes.badgeColor} bg="none">
             {" "}
-            <div>Total Amount: {props.checkoutSum()}₪</div>{" "}
+            <div>Total Amount: {sumPrice}₪</div>{" "}
           </Badge>
         </h4>
       </Col>

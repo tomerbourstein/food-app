@@ -1,0 +1,28 @@
+footer {
+    
+    
+    font-size: 0.6rem;
+    padding-top: 2rem;
+    padding-bottom:2rem;
+    color: #AC7088;
+    margin-top: 2rem;
+    background-color: #DEB6AB;
+}
+.logoSvg {
+    /* color: #ffefe2 !important; */
+    filter: invert(48%) sepia(13%) saturate(1040%) hue-rotate(284deg) brightness(100%) contrast(89%);
+    
+    /* margin: 0; */
+}
+
+
+.logos {
+    /* #AC7088; */
+    padding: 1rem 0;
+}
+.logos svg {
+    padding: 0 0.1rem;
+}
+.logos svg:hover {
+    color: #ffefe2;
+}

@@ -1,5 +1,4 @@
-import { useRef } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
 import useInput from "../hooks/use-input";
 
 import Form from "react-bootstrap/Form";
@@ -8,8 +7,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 import classes from "./FormPayment.module.css";
+import { cartActions } from "../store/cart-slice";
 
 const FormPayment = (props) => {
+  const cartList = useSelector((state) => state.cart.cartList);
+  const sumPrice = useSelector((state) => state.cart.totalPrice);
+  const dispatch = useDispatch();
   const {
     value: enteredFirstName,
     isValid: firstNameIsValid,
@@ -84,10 +87,13 @@ const FormPayment = (props) => {
     postalBlurHandler();
     cityBlurHandler();
     paymentBlurHandler();
-    if(!formIsValid) {
-        return;
+    dispatch(cartActions.sumPrice());
+    if (!formIsValid) {
+      return;
     }
     const data = {
+      cookies: cartList,
+      sum: sumPrice,
       firstName: enteredFirstName,
       lastName: enteredLastName,
       adress: enteredAdrress,
@@ -96,17 +102,22 @@ const FormPayment = (props) => {
       payment: enteredPayment,
     };
 
-    console.log(data);
     firstNameReset();
     lastNameReset();
     adrressReset();
     postalReset();
     cityReset();
     paymentReset();
+
+    props.handleSubmit(data);
   };
   return (
     <>
-      <Form id="payment-form" onSubmit={formSubmitHandler}>
+      <Form
+        id="payment-form"
+        onSubmit={formSubmitHandler}
+        className={classes.formStyle}
+      >
         <Row
           className={
             firstNameHasError || lastNameHasError ? "mt-2" : "mt-2 mb-4"
@@ -117,6 +128,7 @@ const FormPayment = (props) => {
               <InputGroup.Text>First Name</InputGroup.Text>
               <Form.Control
                 name="firstName"
+                // isValid={!firstNameHasError}
                 isInvalid={firstNameHasError}
                 value={enteredFirstName}
                 onChange={firstNameChangeHandler}
@@ -194,7 +206,10 @@ const FormPayment = (props) => {
                 onBlur={cityBlurHandler}
                 aria-label="Select City"
               >
-                <option value="Choose">Choose</option>
+                <option disabled hidden value="">
+                  Choose
+                </option>
+
                 <option value="Tel-Aviv">Tel-Aviv</option>
                 <option value="Ramat-Gan">Ramat-Gan</option>
                 <option value="Givatayim">Givatayim</option>
@@ -217,7 +232,10 @@ const FormPayment = (props) => {
                 onBlur={paymentBlurHandler}
                 aria-label="Select Payment Method"
               >
-                <option value="Choose">Choose</option>
+                <option disabled hidden value="">
+                  Choose
+                </option>
+
                 <option value="PayPal">PayPal</option>
                 <option value="Credit Card">Credit Card</option>
               </Form.Select>

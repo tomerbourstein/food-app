@@ -1,11 +1,16 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "./components/store/cart-slice";
+import { sendCartData, fetchCartData } from "./components/store/cart-requests";
 import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./App.module.css";
-
-import Navigation from "./components/Navigation";
+import Header from "./components/Header/Header";
+import Navigation from "./components/Header/Navigation";
 import MainCard from "./components/MainCard/MainCard";
-import Background from "./components/Background";
 import Cart from "./components/Cart/Cart";
+import Footer from "./components/Footer/Footer";
+
+let isInitial = true;
 
 // const cookiesLeft = [
 //   {
@@ -63,102 +68,88 @@ import Cart from "./components/Cart/Cart";
 //   },
 // ];
 
-
-
-
 function App() {
+  const dispatch = useDispatch();
+  const cartList = useSelector((state) => state.cart.cartList);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const isChanged = useSelector((state) => state.cart.changed);
+  const showCart = useSelector((state) => state.cart.isShow);
   const [cookiesLeft, setCookiesLeft] = useState([]);
   const [cookiesRight, setCookiesRight] = useState([]);
-
-  const [show, setShow] = useState(false);
-  var [cookies, setCookies] = useState([]);
-  var [count, setCount] = useState(0);
-
-useEffect(() =>{
-  const handleFetch = async () =>{
-    const resLeft = await fetch("https://react-http-140ec-default-rtdb.firebaseio.com/cookiesLeft.json/");
-    const dataLeft = await resLeft.json();
-    const cookiesDataLeft = [];
-      for(const key in dataLeft) {
-
-      cookiesDataLeft.push({
-        id: key,
-        type: dataLeft[key].type,
-        description: dataLeft[key].description,
-        price: dataLeft[key].price
-      })
-    }
-    setCookiesLeft(cookiesDataLeft);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const resRight = await fetch("https://react-http-140ec-default-rtdb.firebaseio.com/cookiesRight.json/");
-    const dataRight = await resRight.json();
-    const cookiesDataRight = [];
-      for(const key in dataRight) {
-
-      cookiesDataRight.push({
-        id: key,
-        type: dataRight[key].type,
-        description: dataRight[key].description,
-        price: dataRight[key].price
-      })
-    }
-    setCookiesRight(cookiesDataRight)
-  }
-  handleFetch();
-},[])
   
+  
+  useEffect(() => {
+    dispatch(fetchCartData());
+  }, [dispatch]);
+  
+  useEffect(() => {
+    let cart = { cartList, totalAmount, totalPrice };
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+    if (isChanged) {
+      dispatch(sendCartData(cart));
+    }
+  }, [cartList,totalAmount,totalPrice, dispatch, isChanged]);
 
   useEffect(() => {
-    const cookieCount = cookies.map((c) => Number(c.amount));
-    setCount(cookieCount.reduce((a, b) => a + b, 0));
-  }, [cookies]);
+    const handleFetch = async () => {
+      const resLeft = await fetch(
+        "https://react-http-140ec-default-rtdb.firebaseio.com/cookiesLeft.json/"
+      );
+      const dataLeft = await resLeft.json();
+      const cookiesDataLeft = [];
+      for (const key in dataLeft) {
+        cookiesDataLeft.push({
+          id: key,
+          type: dataLeft[key].type,
+          description: dataLeft[key].description,
+          price: dataLeft[key].price,
+        });
+      }
+      setCookiesLeft(cookiesDataLeft);
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      const resRight = await fetch(
+        "https://react-http-140ec-default-rtdb.firebaseio.com/cookiesRight.json/"
+      );
+      const dataRight = await resRight.json();
+      const cookiesDataRight = [];
+      for (const key in dataRight) {
+        cookiesDataRight.push({
+          id: key,
+          type: dataRight[key].type,
+          description: dataRight[key].description,
+          price: dataRight[key].price,
+        });
+      }
+      setCookiesRight(cookiesDataRight);
+    };
+    handleFetch();
+  }, []);
 
   const handleButtonClick = () => {
-    setShow(true);
+    dispatch(cartActions.toggle());
   };
 
-  const handleButtonClose = () => {
-    setShow(false);
-  };
+  const handleButtonClose = (hasConfirm) => {
+    dispatch(cartActions.toggle());
 
-  const addCookieHandler = (enteredCookieEvent) => {
-    let traceCookieType = (element) => element.type === enteredCookieEvent.type;
-    let foundCookie = cookies.find(traceCookieType);
-
-    if (foundCookie) {
-      setCookies(() => {
-        foundCookie.amount =
-          Number(foundCookie.amount) + Number(enteredCookieEvent.amount);
-        foundCookie.price =
-          Number(foundCookie.price) + Number(enteredCookieEvent.price);
-        return [...cookies];
-      });
-    } else {
-      setCookies((prevState) => {
-        cookies = [enteredCookieEvent, ...prevState];
-        return [...cookies];
-      });
+    if (!hasConfirm) {
+      return;
     }
+    dispatch(cartActions.reset());
   };
 
   return (
     <div className={classes.App}>
-      <Navigation
-        handleButtonClick={handleButtonClick}
-        enteredCookie={cookies}
-        cookieCount={count}
-      />
-      <Cart
-        handleButtonClose={handleButtonClose}
-        showModal={show}
-        enteredCookie={cookies}
-      />
-      <Background />
-      <MainCard
-        cookiesRight={cookiesRight}
-        cookiesLeft={cookiesLeft}
-        addCookieHandler={addCookieHandler}
-      />
+      <Navigation handleButtonClick={handleButtonClick} />
+      <Header />
+      <Cart handleButtonClose={handleButtonClose} showModal={showCart} />
+      {/* <Background /> */}
+      <MainCard cookiesRight={cookiesRight} cookiesLeft={cookiesLeft} />
+      <Footer />
     </div>
   );
 }

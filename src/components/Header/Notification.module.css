@@ -1,0 +1,18 @@
+/* .notificationSuccess span {
+    color: #59CE8F !important;
+    margin: 0;
+}
+
+
+.messagePending {
+    color: #686868 !important;
+
+}
+.messageError span{
+    color: #FF1E00 !important;
+
+} */
+
+.message span {
+    font-size: 0.7rem;
+}

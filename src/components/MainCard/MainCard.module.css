@@ -1,16 +1,18 @@
-
-
-   .zIndex {
-    display: flex;
+.mainCard {
+   margin: 6rem;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+/* .zIndex {
+ display: flex;
     justify-content:center;
     position: absolute !important;
     left: 0;
     top: 0;
-    z-index: 10 !important;
-   }
-   .marginRight {
-    margin-right: 18.5rem;
-   }
-   .marginLeft {
-    margin-left: 18.5rem;
-   }
+    z-index: 10 !important; 
+ } 
+.marginRight {
+  margin-right: 18.5rem;
+}
+.marginLeft {
+  margin-left: 18.5rem;
+} */
