@@ -32,7 +32,7 @@ const Cart = (props) => {
       }
       const data = await response.json();
       console.log(data);
-      dispatch(modalContentActions.isLoading(false));
+      setTimeout(()=>dispatch(modalContentActions.isLoading(false)),2500);
     } 
     
     catch (error) {
