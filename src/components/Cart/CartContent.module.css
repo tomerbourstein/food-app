@@ -1,0 +1,44 @@
+.badgeColor {
+  background-color: #ac7088 !important;
+}
+
+.btnColor {
+  border-color: #ac7088;
+  color: #ac7088;
+  background-color: rgb(255, 255, 255);
+}
+
+.btnColor:hover {
+  background-color: #ac7088;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.inverseBtnColor {
+  background-color: #ac7088;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.inverseBtnColor:hover {
+  border-color: #ac7088;
+  color: #ac7088;
+  background-color: rgb(255, 255, 255);
+}
+.inverseBtnColor:focus {
+    border-color: #ac7088;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #ac7088;
+    color: #ac7088;
+}
+.justifySpaceBetween {
+  justify-content: space-between;
+}
+
+.cartText{
+    color: #657786;
+  }
+  
+
+.justifyFlexEnd {
+  justify-self: flex-end;
+}

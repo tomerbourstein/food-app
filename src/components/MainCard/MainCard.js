@@ -1,25 +1,26 @@
 import React from "react";
 import classes from "./MainCard.module.css";
-
 import CookieList from "./CookieList";
-
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import CardGroup from "react-bootstrap/CardGroup";
 
 const MainCard = (props) => {
   return (
-    <Container fluid className={classes.zIndex}>
-      <Row className={classes.centerCol}>
-        <Col className={classes.marginRight}>
-          <CookieList cookies={props.cookiesLeft} />
-        </Col>
+    <section id="main" className={classes.mainCard}>
+      <CardGroup>
+        <CookieList cookies={props.cookiesLeft} />
+      </CardGroup>
+      {/* <Container fluid className={classes.zIndex}>
+        <Row className={classes.centerCol}>
+          <Col className={classes.marginRight}>
+            <CookieList cookies={props.cookiesLeft} />
+          </Col> */}
 
-        <Col className={classes.marginLeft}>
+      {/* <Col className={classes.marginLeft}>
           <CookieList cookies={props.cookiesRight} />
-        </Col>
-      </Row>
-    </Container>
+        </Col> */}
+      {/* </Row> */}
+      {/* </Container> */}
+    </section>
   );
 };
 

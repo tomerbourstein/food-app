@@ -20,7 +20,7 @@ const CheckoutContent = (props) => {
                   {" "}
                   {cookie.type} {"x" + cookie.amount}{" "}
                 </p>
-                <Badge className="align-self-start" bg="secondary" pill>
+                <Badge className={classes.badgeColor} bg="secondary" pill>
                   {cookie.price + "₪"}
                 </Badge>
               </div>
@@ -32,7 +32,7 @@ const CheckoutContent = (props) => {
       <Col className="mt-4 mb-2">
         <h4 className="mx-1">
           {" "}
-          <Badge bg="secondary">
+          <Badge className={classes.badgeColor} bg="none">
             {" "}
             <div>Total Amount: {sumPrice}₪</div>{" "}
           </Badge>

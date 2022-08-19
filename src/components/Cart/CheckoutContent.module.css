@@ -10,3 +10,8 @@
 .padd {
     padding: 8px 8px;
 }
+
+.badgeColor {
+  align-self: start;
+  background-color: #AC7088 !important;
+}

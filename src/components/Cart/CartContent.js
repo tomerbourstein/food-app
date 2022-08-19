@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../store/cart-slice";
 import { modalContentActions } from "../store/modal-content-slice";
-import classes from "./Cart.module.css";
+import classes from "./CartContent.module.css";
 import CartList from "./CartList";
 import FormPayment from "./FormPayment";
 import CheckoutContent from "./CheckoutContent";
@@ -10,6 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/esm/Badge";
 
+import { ReactComponent as Logo } from "../../media/kuperman.svg";
 export const ActiveCart = () => {
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.cart.cartList);
@@ -30,25 +31,31 @@ export const ActiveCart = () => {
   };
   return (
     <>
-      <Modal.Header closeButton>
-        <Modal.Title>This is Your Cart</Modal.Title>
+      <Modal.Header className="py-0" closeButton>
+        <Logo />
+        <Modal.Title>
+          {/* <p>
+        This is Your Cart
+        </p> */}
+        </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className={classes.cartText}>
         {cartList.length === 0 ? <div>Your Cart is empty!</div> : <CartList />}
       </Modal.Body>
       <Modal.Footer className={classes.justifySpaceBetween}>
         <h4>
           {" "}
-          <Badge bg="secondary">
+          <Badge bg="none" className={classes.badgeColor}>
             {" "}
             <div>Total Amount: {sumPrice}₪</div>{" "}
           </Badge>
         </h4>
 
         <Button
+          className={classes.btnColor}
           disabled={cartFull}
           onClick={goToCheckoutHandler}
-          variant="success"
+          variant="none"
           size="sm"
         >
           Checkout
@@ -66,8 +73,13 @@ export const CheckoutCart = (props) => {
   };
   return (
     <>
-      <Modal.Header closeButton>
-        <Modal.Title>Your Order and Information</Modal.Title>
+      <Modal.Header className="py-0" closeButton>
+        <Logo />
+        <Modal.Title>
+          {/* <p>
+            Your Order and Information
+            </p> */}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Header>
         <CheckoutContent />
@@ -77,11 +89,22 @@ export const CheckoutCart = (props) => {
       </Modal.Body>
 
       <Modal.Footer className={classes.justifySpaceBetween}>
-        <Button onClick={backToCartHandler} variant="outline-success" size="sm">
+        <Button
+          className={classes.btnColor}
+          onClick={backToCartHandler}
+          variant="none"
+          size="sm"
+        >
           Back to Cart
         </Button>
 
-        <Button type="submit" form="payment-form" variant="success" size="sm">
+        <Button
+          className={classes.inverseBtnColor}
+          type="submit"
+          form="payment-form"
+          variant="none"
+          size="sm"
+        >
           Confirm Order
         </Button>
       </Modal.Footer>
@@ -101,20 +124,24 @@ export const SuccessCart = () => {
   };
   return (
     <>
-      <Modal.Header>
-        <Modal.Title>
-          <p>Thank You for Buyin Kuperman!</p>
-        </Modal.Title>
+      <Modal.Header className="py-0">
+        <Logo />
+        <Modal.Title></Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {isLoading ? (
           <Loading />
         ) : (
-          <p>Your Order is Confirmed, Visit Us Again Soon!</p>
+          <div>
+            <p>Thank You for Buyin Kuperman!</p>
+            <p>Your Order is Confirmed, Visit Us Again Soon!</p>
+          </div>
         )}
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={resetCartHandler}>Close</Button>
+        <Button className={classes.inverseBtnColor} onClick={resetCartHandler}>
+          Close
+        </Button>
       </Modal.Footer>
     </>
   );

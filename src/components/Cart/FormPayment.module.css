@@ -1,12 +1,28 @@
 .invalid {
-    padding-left: 0.1rem;
-    font-size: 0.7rem;
-    color: brown;
-  }
-  
-  .invalidNoMargin {
-    padding-left: 0.1rem;
-    font-size: 0.7rem;
-    color: brown;
-    margin-bottom: 0;
-  }
+  padding-left: 0.1rem;
+  font-size: 0.7rem;
+  color: rgb(183, 4, 4);
+}
+
+.invalidNoMargin {
+  padding-left: 0.1rem;
+  font-size: 0.7rem;
+  color: rgb(183, 4, 4);
+  margin-bottom: 0;
+}
+
+.formStyle input:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #ac7088;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #ac7088;
+}
+
+.formStyle select:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #ac7088;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #ac7088;
+}

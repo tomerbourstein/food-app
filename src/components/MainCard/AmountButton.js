@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cart-slice";
+import {ReactComponent as PlusSign} from "../../media/plus-circle.svg";
 import classes from "./AmountButton.module.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const AmountButton = (props) => {
   const dispatch = useDispatch();
@@ -38,19 +40,21 @@ const AmountButton = (props) => {
   return (
     <div>
       <Form onSubmit={submitHandler} className={classes.width}>
+        <InputGroup>
         <Form.Control
+          type="number"
           value={amount}
           onChange={amountChangeHandler}
           className={classes.placeHolder}
           name={props.name}
-          type="number"
           min="0"
           max="5"
-        ></Form.Control>
+          ></Form.Control>
 
-        <Button disabled={disable} type="submit" variant="secondary" size="sm">
-          Add
+        <Button disabled={disable} type="submit" className={classes.btnColor} size="sm">
+          <PlusSign />
         </Button>
+          </InputGroup>
       </Form>
     </div>
   );

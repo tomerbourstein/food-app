@@ -2,6 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #14171A;
+
 }
 
 .text {
@@ -20,5 +22,16 @@
 }
 
 .buttons span {
+    font-size: 0.8rem;;
     cursor: pointer;
 }
+
+
+.cookieImg {
+    width: 2.5rem;
+}
+.badgeColor {
+    background-color: #AC7088 !important;
+}
+
+

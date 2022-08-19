@@ -1,0 +1,32 @@
+.bgColor{
+    background-color: #DEB6AB;
+    }
+
+.btnColor {
+    background-color: #AC7088;
+    border-color: #ffbdd8;
+    padding: 0.5rem; 
+}
+
+.btnColor:hover {
+    background-color: #865569;
+    border-color: #da8eac;
+
+}
+.btnColor:focus {
+    background-color: #AC7088;
+    border-color: #da8eac;
+    box-shadow: 0 0 0 0.2rem #da8eac; 
+    
+}
+.btnColor:active{
+    background-color: #AC7088;
+    border-color: #F5E8C7;
+
+    
+}
+
+
+.logoSvg {
+    filter: invert(48%) sepia(13%) saturate(1040%) hue-rotate(284deg) brightness(100%) contrast(89%);
+}

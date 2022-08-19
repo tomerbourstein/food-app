@@ -20,3 +20,17 @@
 itemPrice {
     padding: none;
 }
+
+.bodyBg {
+  background-color:#DEB6AB;
+  color: #705e65
+}
+
+.badgeColor {
+    background-color: #AC7088 !important;
+}
+
+
+.cardText {
+    height: 3rem;
+}

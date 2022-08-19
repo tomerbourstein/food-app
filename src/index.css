@@ -1,6 +1,11 @@
+ html, body { margin: 0px; padding: 0px; width:100vw;}
+
+html {
+  scroll-behavior: smooth;
+}
 body {
-  background-color: #F7E2D6 !important;
-  margin: 0;
+  background-color:   #ECCCB2 !important;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

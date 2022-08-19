@@ -4,11 +4,11 @@ import { cartActions } from "./components/store/cart-slice";
 import { sendCartData, fetchCartData } from "./components/store/cart-requests";
 import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./App.module.css";
-
-import Navigation from "./components/Navigation";
+import Header from "./components/Header/Header";
+import Navigation from "./components/Header/Navigation";
 import MainCard from "./components/MainCard/MainCard";
-import Background from "./components/Background";
 import Cart from "./components/Cart/Cart";
+import Footer from "./components/Footer/Footer";
 
 let isInitial = true;
 
@@ -145,9 +145,11 @@ function App() {
   return (
     <div className={classes.App}>
       <Navigation handleButtonClick={handleButtonClick} />
+      <Header />
       <Cart handleButtonClose={handleButtonClose} showModal={showCart} />
-      <Background />
+      {/* <Background /> */}
       <MainCard cookiesRight={cookiesRight} cookiesLeft={cookiesLeft} />
+      <Footer />
     </div>
   );
 }

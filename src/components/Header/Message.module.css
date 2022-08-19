@@ -1,0 +1,29 @@
+.alertMessage {
+  font-family: "Amatic SC", cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  top: 2rem;
+  margin: auto;
+  width: 60%;
+  background-color: #ecccb2;
+  opacity: 0.7;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-color: #c6a992;
+}
+
+.svgImg {
+  width: 9rem;
+  height: 9rem;
+}
+
+p {
+  margin: 0.1rem 0;
+}
+
+
+
+@media (max-width:500px) {
+ .alertMessage  {
+    font-size: 1.2rem;
+  }
+}

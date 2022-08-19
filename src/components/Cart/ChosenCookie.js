@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cart-slice";
 import ListGroup from "react-bootstrap/ListGroup";
 import Badge from "react-bootstrap/Badge";
+import Image from 'react-bootstrap/Image'
+import cookie1 from "../../media/cookie1.jpeg";
 
 import classes from "./ChosenCookie.module.css";
 
@@ -32,6 +34,9 @@ const ChosenCookie = (props) => {
 
   return (
     <ListGroup.Item as="li" className={classes.listGroupItem}>
+      <div>
+        <Image className={classes.cookieImg} roundedCircle src={cookie1}/>
+      </div>
       <div className={classes.text}>
         <div className={classes.textType}>
           {props.enteredCookie.type} {"x" + props.enteredCookie.amount}{" "}
@@ -40,7 +45,6 @@ const ChosenCookie = (props) => {
       </div>
       <div className={classes.buttons}>
         <Badge
-          className={classes.badge}
           onClick={onAddItemHandler}
           text="danger"
           bg="light"
@@ -57,7 +61,9 @@ const ChosenCookie = (props) => {
         >
           -
         </Badge>
-        <Badge as="small" bg="secondary" pill>
+        <Badge 
+          className={classes.badgeColor}
+          as="small" bg="secondary" pill>
           {props.enteredCookie.price + "₪"}
         </Badge>
       </div>

@@ -113,7 +113,11 @@ const FormPayment = (props) => {
   };
   return (
     <>
-      <Form id="payment-form" onSubmit={formSubmitHandler}>
+      <Form
+        id="payment-form"
+        onSubmit={formSubmitHandler}
+        className={classes.formStyle}
+      >
         <Row
           className={
             firstNameHasError || lastNameHasError ? "mt-2" : "mt-2 mb-4"
@@ -124,6 +128,7 @@ const FormPayment = (props) => {
               <InputGroup.Text>First Name</InputGroup.Text>
               <Form.Control
                 name="firstName"
+                // isValid={!firstNameHasError}
                 isInvalid={firstNameHasError}
                 value={enteredFirstName}
                 onChange={firstNameChangeHandler}
@@ -200,8 +205,6 @@ const FormPayment = (props) => {
                 onChange={cityChangeHandler}
                 onBlur={cityBlurHandler}
                 aria-label="Select City"
-
-                // placeholder="Choose"
               >
                 <option disabled hidden value="">
                   Choose

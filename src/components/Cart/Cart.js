@@ -5,6 +5,7 @@ import { ActiveCart, CheckoutCart, SuccessCart } from "./CartContent";
 
 import Modal from "react-bootstrap/Modal";
 
+
 const Cart = (props) => {
   const hasOrdered = useSelector((state) => state.modalContent.hasOrdered);
   const hasConfirm = useSelector((state) => state.modalContent.hasConfirm);
@@ -19,18 +20,22 @@ const Cart = (props) => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(enteredData),
     };
-    try {
+     try {
+      
+
       const response = await fetch(
-        "https://react-http-140ec-default-rtdb.firebaseio.com/purchases.json",
-        requestOptions
-      );
+          "https://react-http-140ec-default-rtdb.firebaseio.com/purchases.json",
+          requestOptions
+          );
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
       const data = await response.json();
       console.log(data);
       dispatch(modalContentActions.isLoading(false));
-    } catch (error) {
+    } 
+    
+    catch (error) {
       let err = {
         error: true,
         status: error.message,
@@ -41,6 +46,7 @@ const Cart = (props) => {
 
   return (
     <Modal
+    // className={classes.cartText}
       variant="light"
       show={props.showModal}
       onHide={props.handleButtonClose}

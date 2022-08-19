@@ -1,9 +1,3 @@
-.justifySpaceBetween {
-  justify-content: space-between;
+.cartText{
+  color: #705e65;
 }
-
-.justifyFlexEnd {
-  justify-self: flex-end;
-}
-
-
