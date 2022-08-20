@@ -33,7 +33,7 @@ export const ActiveCart = () => {
     <>
       <Modal.Header className="py-0" closeButton>
         <Modal.Title>
-        <Logo />
+          <Logo />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className={classes.cartText}>
@@ -72,7 +72,7 @@ export const CheckoutCart = (props) => {
     <>
       <Modal.Header className="py-0" closeButton>
         <Modal.Title>
-        <Logo />
+          <Logo />
         </Modal.Title>
       </Modal.Header>
       <Modal.Header>
@@ -119,10 +119,11 @@ export const SuccessCart = () => {
   return (
     <>
       <Modal.Header className="py-0">
-        <Logo />
-        <Modal.Title></Modal.Title>
+        <Modal.Title>
+          <Logo />
+        </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className={classes.spinner}>
         {isLoading ? (
           <Loading />
         ) : (
