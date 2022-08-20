@@ -11,8 +11,10 @@
   visibility: hidden;
 }
 
+
 @media only screen and (max-width: 500px) {
   .mainCard {
-    margin: 0rem 2rem 8rem;
+    margin: 0rem 2rem 6rem;
+    box-shadow: none;
   }
 }
