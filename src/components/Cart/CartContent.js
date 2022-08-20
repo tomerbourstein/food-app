@@ -32,11 +32,8 @@ export const ActiveCart = () => {
   return (
     <>
       <Modal.Header className="py-0" closeButton>
-        <Logo />
         <Modal.Title>
-          {/* <p>
-        This is Your Cart
-        </p> */}
+        <Logo />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className={classes.cartText}>
@@ -74,11 +71,8 @@ export const CheckoutCart = (props) => {
   return (
     <>
       <Modal.Header className="py-0" closeButton>
-        <Logo />
         <Modal.Title>
-          {/* <p>
-            Your Order and Information
-            </p> */}
+        <Logo />
         </Modal.Title>
       </Modal.Header>
       <Modal.Header>
