@@ -7,7 +7,6 @@
   font-size: 1.2rem;
   font-weight: 500;
   color: #714154;
-  /* padding:0.2rem 0.5rem; */
   background-color: rgba(0, 0, 0, 0.03);
   border-color: #f5e8c7;
 }
@@ -38,7 +37,6 @@
   background-color: #ac7088;
   border-color: #f5e8c7 !important;
   box-shadow: none;
-  
   outline: 0 none;
 }
 .btnColor:active {
@@ -49,4 +47,13 @@
 .btnColor:disabled {
   background-color: #ba7792;
   border-color: #f5e8c7;
+}
+
+@media (max-width:500px) {
+.width {
+  width: 10rem;
+}
+  .btnColor {
+  width: 6.5rem;
+}
 }

@@ -10,17 +10,11 @@
   top: -20vh;
   visibility: hidden;
 }
-/* .zIndex {
- display: flex;
-    justify-content:center;
-    position: absolute !important;
-    left: 0;
-    top: 0;
-    z-index: 10 !important; 
- } 
-.marginRight {
-  margin-right: 18.5rem;
+
+
+@media only screen and (max-width: 500px) {
+  .mainCard {
+    margin: 0rem 2rem 6rem;
+    box-shadow: none;
+  }
 }
-.marginLeft {
-  margin-left: 18.5rem;
-} */

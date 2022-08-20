@@ -16,12 +16,11 @@ const Navigation = (props) => {
   return (
     <Fragment>
       <Navbar fixed="top" className={classes.bgColor} expand="lg">
-        <Container >
+        <Container>
           <Nav className="justify-content-end">
             <Button
               onClick={props.handleButtonClick}
               className={classes.btnColor}
-              // variant="secondary"
               size="sm"
             >
               <Badge bg="danger"> {cookieCount} </Badge> <CartIcon />

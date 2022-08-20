@@ -31,3 +31,9 @@ footer {
 .logos svg:hover {
   color: #ffefe2;
 }
+
+@media (max-width:500px) {
+  .logos {
+    width: 32vw;
+  }
+}
