@@ -43,3 +43,8 @@
 .justifyFlexEnd {
   justify-self: flex-end;
 }
+
+
+.spinner {
+  text-align: center;
+}

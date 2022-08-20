@@ -18,6 +18,8 @@ const Message = (props) => {
         {/* Feel free to choose the variaty of chocolate chip cookies that our very own  */}
       </p>
     </Alert>
+
+    
   );
 };
 

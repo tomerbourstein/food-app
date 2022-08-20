@@ -6,7 +6,7 @@ const Header = () => {
     <section className="wrap">
       <div className="content">
         <Message className="welcome opacity-50" />
-        <a href="main">
+        <a className="anchor" href="#main">
           <Arrow className="svgImg" />
         </a>
       </div>
