@@ -1,13 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 import classes from "./MainCard.module.css";
 import CookieList from "./CookieList";
 import CardGroup from "react-bootstrap/CardGroup";
 
 const MainCard = (props) => {
   return (
-    <Fragment>
-      <a className={classes.anchor} id="main"></a>
       <section  className={classes.mainCard}>
+      <a href="" className={classes.anchor} id="main">{""}</a>
         <CardGroup>
           <CookieList cookies={props.cookiesLeft} />
         </CardGroup>
@@ -23,7 +22,6 @@ const MainCard = (props) => {
         {/* </Row> */}
         {/* </Container> */}
       </section>
-    </Fragment>
   );
 };
 

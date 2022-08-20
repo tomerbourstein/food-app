@@ -18,7 +18,7 @@ const Footer = () => {
         <a href="https://www.instagram.com/chenkuperman/">
           <Instagram />
         </a>
-        <a>
+        <a href="">
           <Youtube />
         </a>
         <a href="https://faq.whatsapp.com/563219570998715/?helpref=uf_share">
