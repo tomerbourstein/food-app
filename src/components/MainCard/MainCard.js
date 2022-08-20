@@ -7,20 +7,9 @@ const MainCard = (props) => {
   return (
       <section  className={classes.mainCard}>
       <a href="" className={classes.anchor} id="main">{""}</a>
-        <CardGroup>
+        <CardGroup className={classes.cardGroup}>
           <CookieList cookies={props.cookiesLeft} />
         </CardGroup>
-        {/* <Container fluid className={classes.zIndex}>
-        <Row className={classes.centerCol}>
-        <Col className={classes.marginRight}>
-        <CookieList cookies={props.cookiesLeft} />
-      </Col> */}
-
-        {/* <Col className={classes.marginLeft}>
-          <CookieList cookies={props.cookiesRight} />
-        </Col> */}
-        {/* </Row> */}
-        {/* </Container> */}
       </section>
   );
 };
