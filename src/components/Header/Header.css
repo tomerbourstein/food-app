@@ -40,9 +40,10 @@
   top: 5rem;
 }
 
-@media  (max-width:500px) {
+@media (max-width: 500px) {
   .wrap:before {
     background-image: url("/src//media/header_chip_mobile.jpg");
+    height: 750px;
+    max-height: 800px;
   }
-  
 }
