@@ -14,10 +14,12 @@ const Message = (props) => {
       </p>
       <p>.תוך שימוש בחומרי הגלם הטובים ביותר ומספקים מהשורה הראשונה</p>
       <p>
-        הרגישו חופשי לבחור ממבחר עוגיות שוקולד צ'יפס
+        .הרגישו חופשי לבחור ממבחר עוגיות שוקולד צ'יפס
         {/* Feel free to choose the variaty of chocolate chip cookies that our very own  */}
       </p>
     </Alert>
+
+    
   );
 };
 

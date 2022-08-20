@@ -5,22 +5,23 @@ import CardGroup from "react-bootstrap/CardGroup";
 
 const MainCard = (props) => {
   return (
-    <section id="main" className={classes.mainCard}>
-      <CardGroup>
-        <CookieList cookies={props.cookiesLeft} />
-      </CardGroup>
-      {/* <Container fluid className={classes.zIndex}>
+      <section  className={classes.mainCard}>
+      <a href="" className={classes.anchor} id="main">{""}</a>
+        <CardGroup>
+          <CookieList cookies={props.cookiesLeft} />
+        </CardGroup>
+        {/* <Container fluid className={classes.zIndex}>
         <Row className={classes.centerCol}>
-          <Col className={classes.marginRight}>
-            <CookieList cookies={props.cookiesLeft} />
-          </Col> */}
+        <Col className={classes.marginRight}>
+        <CookieList cookies={props.cookiesLeft} />
+      </Col> */}
 
-      {/* <Col className={classes.marginLeft}>
+        {/* <Col className={classes.marginLeft}>
           <CookieList cookies={props.cookiesRight} />
         </Col> */}
-      {/* </Row> */}
-      {/* </Container> */}
-    </section>
+        {/* </Row> */}
+        {/* </Container> */}
+      </section>
   );
 };
 

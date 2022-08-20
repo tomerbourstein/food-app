@@ -1,17 +1,40 @@
 .checkoutContent {
-    min-width: 150px;
-    max-width: 150px;
-
+  min-width: 150px;
+  max-width: 150px;
   font-size: 0.7rem;
-  margin: 0.25rem ;
-  /* padding:0; */
+  margin: 0.5rem 0;
 }
 
 .padd {
-    padding: 8px 8px;
+  padding: 4px 6px;
 }
 
 .badgeColor {
   align-self: start;
-  background-color: #AC7088 !important;
+  background-color: #ac7088 !important;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s ease-out;
+}
+.badgeColor:hover,
+.badgeColor:focus {
+  transform: translateY(-0.25em);
+  transition: transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s;
+}
+
+.checkoutSquares {
+  max-height: 42vh;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.popoverHeader {
+  padding: 0.2rem 0;
+  background-color: #ac7088 !important;
+}
+
+.popover {
+  max-width: 14vw !important;
 }
