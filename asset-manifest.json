@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/food-app/static/css/main.be13304a.css",
+    "main.js": "/food-app/static/js/main.f3f62b65.js",
+    "static/js/787.5dc0e2a0.chunk.js": "/food-app/static/js/787.5dc0e2a0.chunk.js",
+    "static/media/cookie1.jpeg": "/food-app/static/media/cookie1.4e4e5e7e4801afb54211.jpeg",
+    "static/media/header_chip.jpg": "/food-app/static/media/header_chip.6719ccced81a65c2d466.jpg",
+    "static/media/header_chip_mobile.jpg": "/food-app/static/media/header_chip_mobile.bbe705f5a2899d20b822.jpg",
+    "static/media/kuperman.svg": "/food-app/static/media/kuperman.d28f3f4b3cec9cea97e3480b0a140d03.svg",
+    "static/media/instagram.svg": "/food-app/static/media/instagram.4d969dd141d389ed7a2fe7584b56d681.svg",
+    "static/media/whatsapp.svg": "/food-app/static/media/whatsapp.bd02df8e7a5ef128e55bcd2a40a8b4a5.svg",
+    "static/media/ku.svg": "/food-app/static/media/ku.175c69ac2fff9ca736e899976baf26ed.svg",
+    "index.html": "/food-app/index.html",
+    "static/media/youtube.svg": "/food-app/static/media/youtube.85c2f09d0ead35313e7bb2812e3c66f5.svg",
+    "static/media/cart.svg": "/food-app/static/media/cart.5dd45921fb5c3b8ebfedbe2ae578cd7c.svg",
+    "static/media/facebook.svg": "/food-app/static/media/facebook.4d4460260f64103d8da4a91d8e856d36.svg",
+    "static/media/arrow-down-circle.svg": "/food-app/static/media/arrow-down-circle.26a6d201a7874780128088a2152a6c23.svg",
+    "static/media/plus-circle.svg": "/food-app/static/media/plus-circle.785f24db48aacfd8961367db6887ef20.svg",
+    "static/media/caret-right-fill.svg": "/food-app/static/media/caret-right-fill.b654783430974bfcf6168e3d43ba5131.svg",
+    "main.be13304a.css.map": "/food-app/static/css/main.be13304a.css.map",
+    "main.f3f62b65.js.map": "/food-app/static/js/main.f3f62b65.js.map",
+    "787.5dc0e2a0.chunk.js.map": "/food-app/static/js/787.5dc0e2a0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be13304a.css",
+    "static/js/main.f3f62b65.js"
+  ]
+}
